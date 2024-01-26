@@ -7,7 +7,7 @@ import { User } from '../models/user.model';
 })
 export class ApiService {
 
-  private baseUrl : string = "http://localhost:3000/enquiry"
+  private baseUrl : string = "https://gymregistrationapp-o58s.onrender.com/enquiry"
 
   constructor(private http : HttpClient) { }
 
