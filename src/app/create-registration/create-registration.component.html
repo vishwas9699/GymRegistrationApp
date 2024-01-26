@@ -36,7 +36,7 @@
             <div class="col-md-6">
                 <mat-form-field appearance="outline">
                     <mat-label>Weight</mat-label>
-                    <input formControlName="weight" type="number" matInput placeholder="Mobile">
+                    <input formControlName="weight" type="number" matInput placeholder="Weight">
                     <mat-icon matSuffix>line_weight</mat-icon>
                     <mat-hint>Unit is KGs</mat-hint>
                 </mat-form-field>
@@ -44,7 +44,7 @@
             <div class="col-md-6">
                 <mat-form-field appearance="outline">
                     <mat-label>Hegiht</mat-label>
-                    <input [readonly]="!this.registrationForm.value?.weight" formControlName="height"  type="number" matInput placeholder="Mobile">
+                    <input [readonly]="!this.registrationForm.value?.weight" formControlName="height"  type="number" matInput placeholder="Height">
                     <mat-icon matSuffix><i class="fa fa-text-height" aria-hidden="true"></i></mat-icon>
                     <mat-hint>Unit is Meters</mat-hint>
                 </mat-form-field>
@@ -65,10 +65,10 @@
               </div>
             <div class="col-md-6 mt-3">
                 <label id="example-radio-group-label">Do You Require Trainer?</label><br>
-                <mat-radio-group formControlName="requireTrainer" aria-labelledby="example-radio-group-label" class="example-radio-group">
-                    <mat-radio-button class="example-radio-button" *ngFor = "let TrainerRequired of ['Yes','No']" [value]= TrainerRequired>{{TrainerRequired}}</mat-radio-button>
+                <mat-radio-group formControlName="requireTrainer" aria-labelledby="example-radio-group-label" class="example-radio-group" >
+                    <mat-radio-button class="example-radio-button" *ngFor = "let TrainerRequired of ['Yes','No']"  (click)="trainervalue(TrainerRequired)" [value]= TrainerRequired>{{TrainerRequired}}</mat-radio-button>
                 </mat-radio-group> 
-                <div>Your Selected Option is:</div>
+                <div>Your Selected Option is: {{trainervalues}}</div>
             </div>
             <div class="col-md-6 mt-3">
                 <!-- <label id="example-radio-group-label">Select Your Gender</label><br>
@@ -78,9 +78,9 @@
                 </mat-radio-group>                   -->
                 <label id="example-radio-group-label">Select Your Gender</label><br>
                 <mat-radio-group formControlName="gender" aria-labelledby="example-radio-group-label" class="example-radio-group">
-                    <mat-radio-button class="example-radio-button" *ngFor = "let Gender of ['Male','Female']" [value]= Gender>{{Gender}}</mat-radio-button>
+                    <mat-radio-button class="example-radio-button" *ngFor = "let Gender of ['Male','Female']" (click)="gendervalue(Gender)" [value]= Gender>{{Gender}}</mat-radio-button>
                 </mat-radio-group> 
-                <div>Your Selected Option is:</div>
+                <div>Your Selected Option is: {{gendervalues}}</div>
             </div>
             <div class="col-md-6 mt-4">
                 <mat-form-field appearance="outline">
@@ -105,9 +105,9 @@
             <div class="col-md-6">
                 <label id="example-radio-group-label">Have you been for gym before?</label><br>
                 <mat-radio-group formControlName="haveGymBefore" aria-labelledby="example-radio-group-label" class="example-radio-group">
-                    <mat-radio-button class="example-radio-button" *ngFor = "let GymBefore of ['Yes','No']" [value]= GymBefore>{{GymBefore}}</mat-radio-button>
+                    <mat-radio-button class="example-radio-button" *ngFor = "let GymBefore of ['Yes','No']" (click)="gymbeforevalue(GymBefore)" [value]= GymBefore>{{GymBefore}}</mat-radio-button>
                 </mat-radio-group> 
-                <div>Your Selected Option is:</div>
+                <div>Your Selected Option is: {{gymbeforevalues}}</div>
             </div>
             <div class="col-md-6">
                 <mat-form-field appearance="outline">

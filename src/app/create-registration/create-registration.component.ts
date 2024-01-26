@@ -12,7 +12,7 @@ import { User } from '../models/user.model';
 })
 export class CreateRegistrationComponent implements OnInit{
   
-  public packages: string[] = ["Monhtly","Quaterly","Yearly"]
+  public packages: string[] = ["Monthly","Quaterly","Yearly"]
   public importantList: string[] = [
     "Toxic Fat reduction",
     "Energy and Endurance",
@@ -25,7 +25,9 @@ export class CreateRegistrationComponent implements OnInit{
   public registrationForm!: FormGroup;
   public UserIdToUpdate!: number;
   public isUpdateActive: boolean =false;
-  
+  public trainervalues:any;
+  public gendervalues:any;
+  public gymbeforevalues:any;
 
 
   constructor(
@@ -107,6 +109,18 @@ export class CreateRegistrationComponent implements OnInit{
         this.registrationForm.controls['bmiResult'].patchValue("Obese");
         break;
     }
+  }
+
+  trainervalue(value:any){
+    this.trainervalues = value
+  }
+
+  gendervalue(value:any){
+    this.gendervalues = value
+  }
+
+  gymbeforevalue(value:any){
+    this.gymbeforevalues = value
   }
 
   fillFormToUpdate(user: User) {
