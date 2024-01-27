@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { NgToastComponent, NgToastService } from 'ng-angular-popup';
 import { ActivatedRoute, Router,  } from '@angular/router';
@@ -40,20 +40,20 @@ export class CreateRegistrationComponent implements OnInit{
 
   ngOnInit(): void {
     this.registrationForm = this.fb.group({
-      firstName: [''],
-      lastName: [''],
-      email: [''],
-      mobile: [''],
-      weight: [''],
-      height: [''],
-      bmi: [''],
-      bmiResult: [''],
-      gender: [''],
-      requireTrainer: [''],
-      package: [''],
-      important: [''],
-      haveGymBefore: [''],
-      enquiryDate: ['']
+      firstName: ['',Validators.required],
+      lastName: ['',Validators.required],
+      email: ['',Validators.required],
+      mobile: ['',Validators.required],
+      weight: ['',Validators.required],
+      height: ['',Validators.required],
+      bmi: ['',Validators.required],
+      bmiResult: ['',Validators.required],
+      gender: ['',Validators.required],
+      requireTrainer: ['',(Validators.required)],
+      package: ['',Validators.required],
+      important: ['',Validators.required],
+      haveGymBefore: ['',Validators.required],
+      enquiryDate: ['',Validators.required]
     })
 
     this.registrationForm.controls['height'].valueChanges.subscribe(res => {
@@ -76,6 +76,10 @@ export class CreateRegistrationComponent implements OnInit{
       this.registrationForm.reset()
     })
 
+  }
+
+  submiterror(){
+    this.toastService.error({ detail: 'ERROR', summary: 'Please fill all details', duration: 3000 });
   }
 
   update() {

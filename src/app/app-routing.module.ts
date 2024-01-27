@@ -10,10 +10,11 @@ const routes: Routes = [
   {path:'list',component:RegistrationListComponent},
   {path:'update/:id',component: CreateRegistrationComponent },
   {path:'detail/:id',component: UserDetailComponent },
+  {path: '**', redirectTo: 'register' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: false })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

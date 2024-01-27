@@ -22,15 +22,16 @@
             <div class="col-md-6">
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
-                    <input formControlName="email" matInput placeholder="Email">
+                    <input formControlName="email" type="email" matInput placeholder="Email">
                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                 </mat-form-field>
             </div>
             <div class="col-md-6">
                 <mat-form-field appearance="outline">
                     <mat-label>Mobile</mat-label>
-                    <input formControlName="mobile" matInput placeholder="Mobile">
+                    <input formControlName="mobile" type="number" pattern="[0-9]*" minlength="10" maxlength="10" matInput placeholder="Mobile">
                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint>Enter 10 digit Mobile Number</mat-hint>
                 </mat-form-field>
             </div>
             <div class="col-md-6">
@@ -120,8 +121,9 @@
             </div>
         </div>
         <div class="logo text-center">
-            <button *ngIf= "!isUpdateActive" (click) = "submit()" mat-raised-button class="mt-4" color="accent">Submit</button>
-            <button *ngIf= "isUpdateActive" (click) = "update()" mat-raised-button class="mt-4" color="accent">Update</button>
+            <button *ngIf= "!isUpdateActive && registrationForm.valid" (click) = "submit()" mat-raised-button class="mt-4" color="accent">Submit</button>
+            <button *ngIf= "(!isUpdateActive || isUpdateActive) && registrationForm.invalid" (click) = "submiterror()" mat-raised-button class="mt-4" color="grey">Submit</button>
+            <button *ngIf= "isUpdateActive && registrationForm.valid" (click) = "update()" mat-raised-button class="mt-4" color="accent">Update</button>
         </div>
     </form>
 </div>
