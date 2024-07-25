@@ -8,7 +8,7 @@
     </mat-form-field>
 </div>
   
-  <div class="mat-elevation-z8">
+  <div class="mat-elevation-z8" *ngIf="!loading">
     <table mat-table [dataSource]="dataSource" matSort>
   
       <!-- ID Column -->
@@ -85,6 +85,11 @@
     </table>
   
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+  <div style="text-align: center;font-family:'Times New Roman', Times, serif" *ngIf="loading">
+    <h1>
+      Fetching Please Wait....
+    </h1>
   </div>
   
   

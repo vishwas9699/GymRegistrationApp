@@ -20,7 +20,7 @@ export class RegistrationListComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'mobile', 'bmiResult', 'gender', 'package', 'enquiryDate', 'action'];
-
+  loading:boolean = true;
   constructor(
     private api : ApiService,
     private router : Router,
@@ -32,7 +32,9 @@ export class RegistrationListComponent implements OnInit {
   }
 
   getUsers(){
+    this.loading = true;
     this.api.getRegisteredUser().subscribe(result => {
+      this.loading = false;
       this.users = result
       this.dataSource = new MatTableDataSource(this.users);
       this.dataSource.paginator = this.paginator;
