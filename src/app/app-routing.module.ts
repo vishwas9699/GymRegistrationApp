@@ -5,16 +5,16 @@ import { RegistrationListComponent } from './registration-list/registration-list
 import { UserDetailComponent } from './user-detail/user-detail.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'register',pathMatch:'full'},
-  {path:'register',component: CreateRegistrationComponent},
-  {path:'list',component:RegistrationListComponent},
-  {path:'update/:id',component: CreateRegistrationComponent },
-  {path:'detail/:id',component: UserDetailComponent },
-  {path: '**', redirectTo: 'register' }
+  { path: '', redirectTo: 'register', pathMatch: 'full' },
+  { path: 'register', component: CreateRegistrationComponent },
+  { path: 'list', component: RegistrationListComponent },
+  { path: 'update/:id', component: CreateRegistrationComponent },
+  { path: 'detail/:id', component: UserDetailComponent },
+  { path: '**', redirectTo: 'register' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: false })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
